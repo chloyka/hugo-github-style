@@ -48,6 +48,13 @@
         </svg>
       </a>
     </div>
+    <div class="Header-item" style="">
+    {{ range $.Page.AllTranslations }}
+      {{ if not (eq .Language.LanguageName $.Site.Language.LanguageName) }}
+        <a class="Header-link no-select" target="_self" href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
+      {{ end }}
+    {{ end }}
+    </div>
     <div class="Header-item" style="margin-right: 0;">
       <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
         <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
